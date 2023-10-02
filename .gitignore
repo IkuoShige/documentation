@@ -1,0 +1,11 @@
+/site/
+/site-blog/
+/site-blog-pass/
+sharelinks.txt
+encryptcontent.key
+encryptcontent.cache
+passwords.yml
+canary.py
+/tmp/
+/.github/
+mkdocs.yml.backup

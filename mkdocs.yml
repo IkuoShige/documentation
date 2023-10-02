@@ -1,0 +1,217 @@
+site_name: ドキュメント
+site_url: https://IkuoShige.github.io/documentation/
+site_author: Ikuo Shige
+
+repo_name: IkuoShige/documentation 
+repo_url: https://github.com/IkuoShige/documentation
+repo: fontawesome/brands/github
+
+copyright: Copyright &copy; 2023 Ikuo Shige
+
+#docs_dir: /
+
+theme:
+    name: material
+    language: ja
+    #logo: 'https://i.gyazo.com/667c1d52a447f38d53cd52beadbb40f1.png'
+    #favicon: 'https://i.gyazo.com/ed2afbfd0328143ef7e2c0418172348f.png'
+    # 使用可能色は定義された21色
+    #    red, pink, purple, deep purple, indigo, blue, light blue, cyan,
+    #    teal,  green, light green, lime, yellow, amber, orange,
+    #    deep orange,   brown, grey, blue grey, white
+    font:
+        text: 'Roboto'
+        code: 'Roboto Mono'
+    features:
+        - navigation.tabs
+        - navigation.top
+        - navigation.footer
+        - navigation.expand
+        - toc.integrate
+        - content.code.annotate
+        - content.code.copy
+        - content.code.select
+        - content.code.annotate
+    palette:
+        - scheme: slate
+          primary: blue
+          accent: blue
+          toggle:
+              icon: material/toggle-switch
+              name: ライトモードに切り替えます。
+
+        - scheme: default
+          primary: blue
+          accent: blue
+          toggle:
+              icon: material/toggle-switch-off-outline
+              name: ダークモードに切り替えます。
+    icon:
+      repo: fontawesome/brands/github
+
+nav:
+  - Home:
+    - このサイトについて: index.md
+  - Document:
+    - todo today: document/todo_today.md
+    - Jetson:
+      - index: Jetson/index.md
+      - Jetson_test: document/jetson_test.md
+      - NVIDIA SDKManagerでjetpackのインストール: document/jetpack_install.md
+      - Nvidia-sdkmanager-docker-gui: document/sdkmanager.md
+      - Jetsonのクローン/リストア: document/jetson_clone.md
+    - tmux: 
+      - tmuxの基本ガイド: document/tmux.md
+      - tmuxを応用したscript: document/tmux_application.md
+    - Livox: 
+      - Livox MID-360 環境構築: document/livox.md
+      - 3次元地図作成(FAST_LIO): document/fast_lio.md
+    - MkDocs:
+      - コラム: document/mkdocs_colum.md
+  - Jetson:
+      - index: Jetson/index.md
+      - NVIDIA SDKManagerでJetpackのインストール: document/jetpack_install.md
+      - Nvidia-sdkmanager-docker-gui: document/sdkmanager.md
+      - Jetsonのクローン/リストア: document/jetson_clone.md
+  - Blog_public:
+      - blog/index.md
+  - Blog_private:
+      - blog_private/index.md
+
+# Plugins
+plugins:
+    - search: {}
+
+    - i18n:
+        reconfigure_material: true
+        languages:
+            - locale: ja
+              name: Japanese
+              build: true
+              default: true
+            - locale: en
+              name: English
+              build: true
+              site_name: "Documentation"
+              nav:
+                - Home EN:
+                  - このサイトについて: index.en.md
+                - Document EN:
+                  - todo today EN: document/todo_today.en.md
+                  - Jetson EN:
+                    - index: Jetson/index.en.md
+                    - NVIDIA SDKManagerでjetpackのインストール: document/jetpack_install.en.md
+                    - Nvidia-sdkmanager-docker-gui: document/sdkmanager.en.md
+                    - Jetsonのクローン/リストア: document/jetson_clone.en.md
+                  - tmux EN: 
+                    - tmuxの基本ガイド: document/tmux.en.md
+                    - tmuxを応用したscript: document/tmux_application.en.md
+                  - Livox EN: 
+                    - Livox MID-360 環境構築: document/livox.en.md
+                    - 3次元地図作成(FAST_LIO): document/fast_lio.en.md
+                  - MkDocs EN:
+                    - コラム: document/mkdocs_colum.en.md
+                - Jetson EN:
+                    - index: Jetson/index.en.md
+                    - NVIDIA SDKManagerでJetpackのインストール: document/jetpack_install.en.md
+                    - Nvidia-sdkmanager-docker-gui: document/sdkmanager.en.md
+                    - Jetsonのクローン/リストア: document/jetson_clone.en.md
+                - Blog EN:
+                    - blog/index.en.md
+
+    #- encryptcontent:
+    #    #html_template_path: "decrypt-form.tpl.html"
+    #    title_prefix: ''
+    #    summary: ''
+    #    placeholder: 'Password'
+    #    placeholder_user: User
+    #    password_button_text: 'ENTER'
+    #    decryption_failure_message: 'Wrong user name or password.'
+    #    encryption_info_message: 'Legitimation required.'
+    #    translations:
+    #      de:
+    #        title_prefix: ''
+    #        summary: ''
+    #        placeholder: 'Passwort'
+    #        placeholder_user: Benutzer
+    #        password_button_text: 'ENTER'
+    #        decryption_failure_message: 'Falscher Benutzer oder Passwort.'
+    #        encryption_info_message: 'Legitimation erforderlich.'
+    #        password_file: 'passwords_ad.yml'
+    #    #input_class: 'w3-input'
+    #    #button_class: 'w3-button w3-theme-l1 w3-hover-theme'
+    #    #hljs: true
+    #    #arithmatex: true
+    #    #mermaid2: true
+    #    remember_keys: true
+    #    #remember_password: true
+    #    remember_prefix: encryptcontent_plugin_
+    #    encrypted_something:
+    #      md-footer__inner: [nav, class] #Footer
+    #      #md-nav: [nav, class] #Menu and toc
+    #    inject:
+    #      md-content: [div, class]
+    #    search_index: 'dynamically' #dynamically
+    #    password_button: True
+    #    selfhost: true
+    #    selfhost_download: true
+    #    #selfhost_dir: 'theme_override'
+    #    reload_scripts:
+    #      - '#autostart'
+    #    password_file: 'passwords.yml'
+    #    sharelinks: true
+    #    #kdf_pow: 4
+    #    webcrypto: true
+    #    sign_files: 'encryptcontent-plugin.json'
+    #    hash_filenames:
+    #      extensions:
+    #        - 'png'
+    #        - 'jpg'
+    #        - 'jpeg'
+    #        - 'svg'
+    #      except:
+    #        - 'logo.svg'
+    #- blog
+
+extra:
+    homepage: https://example.com
+    logo:
+        # 利用可能なアイコンは以下を参照
+        # https://material.io/resources/icons/?icon=description&style=baseline
+        icon: 'developer_board'
+    # ウェブアプリマニフェストを有効化
+    manifest: 'manifest.webmanifest'
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/IkuoShige
+
+extra_css:
+  - 'css/lightbox.css'
+  #- https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css
+extra_javascript:
+    - 'javascripts/lightbox.js'
+  #- https://code.jquery.com/jquery-1.12.4.min.js
+  #- https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js
+
+
+markdown_extensions:
+    - admonition
+    - attr_list
+    - footnotes
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.superfences
+    - footnotes
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - pymdownx.details
+    - pymdownx.keys
+    - md_in_html
+    - pymdownx.blocks.html
+
+

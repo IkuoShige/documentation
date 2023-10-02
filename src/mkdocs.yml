@@ -1,0 +1,96 @@
+site_name: ドキュメント
+site_author: Ikuo Shige
+repo_name: IkuoShige/documentation
+repo_url: https://github.com/IkuoShige/documentation
+repo: fontawesome/brands/github
+copyright: Copyright &copy; 2023 Ikuo Shige
+theme:
+  name: material
+  language: ja
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+  - navigation.tabs
+  - navigation.top
+  - navigation.footer
+  - navigation.expand
+  - toc.integrate
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  - content.code.annotate
+  palette:
+  - scheme: slate
+    primary: blue
+    accent: blue
+    toggle:
+      icon: material/toggle-switch
+      name: ライトモードに切り替えます。
+  - scheme: default
+    primary: blue
+    accent: blue
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: ダークモードに切り替えます。
+  icon:
+    repo: fontawesome/brands/github
+nav:
+- Home:
+  - このサイトについて: index.md
+- Document:
+  - todo today: document/todo_today.md
+  - Jetson:
+    - index: Jetson/index.md
+    - Jetson_test: document/jetson_test.md
+    - NVIDIA SDKManagerでjetpackのインストール: document/jetpack_install.md
+    - Nvidia-sdkmanager-docker-gui: document/sdkmanager.md
+    - Jetsonのクローン/リストア: document/jetson_clone.md
+  - tmux:
+    - tmuxの基本ガイド: document/tmux.md
+    - tmuxを応用したscript: document/tmux_application.md
+  - Livox:
+    - Livox MID-360 環境構築: document/livox.md
+    - 3次元地図作成(FAST_LIO): document/fast_lio.md
+  - MkDocs:
+    - コラム: document/mkdocs_colum.md
+- Jetson:
+  - index: Jetson/index.md
+  - NVIDIA SDKManagerでJetpackのインストール: document/jetpack_install.md
+  - Nvidia-sdkmanager-docker-gui: document/sdkmanager.md
+  - Jetsonのクローン/リストア: document/jetson_clone.md
+- Blog:
+  - blog/index.md
+plugins:
+- search
+- blog
+extra:
+  homepage: https://example.com
+  logo:
+    icon: developer_board
+  manifest: manifest.webmanifest
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/IkuoShige
+extra_css:
+- css/lightbox.css
+extra_javascript:
+- javascripts/lightbox.js
+markdown_extensions:
+- admonition
+- attr_list
+- footnotes
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.superfences
+- footnotes
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
+- pymdownx.details
+- pymdownx.keys
+- md_in_html
