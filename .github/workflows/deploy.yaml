@@ -19,19 +19,51 @@ jobs:
           echo "$PASSWORD_FILE" > passwords.yml
 
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin
-      - run: mkdocs build -f mkdocs_blog.yml &&
-             mv site/ site-blog/ &&
-             mkdocs build -f mkdocs.yml &&
-             mv site/ site-i18n/ &&
-             mkdocs build -f mkdocs_blog_pass.yml &&
-             mv site/ site-blog-pass/ &&
-             cp -r site-blog-pass/assets/ site-i18n/ &&
-             cp site-blog-pass/encryptcontent-plugin.json site-i18n/ &&
-             cp -r site-blog-pass/blog_private/* site-i18n/blog_private/ &&
-             sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' site-i18n/blog_private/index.html &&
-             cp -r site-blog/blog/* site-i18n/blog/ &&
-             mv site-i18n/ site/ &&
-             mkdocs gh-deploy --force -d site/
+
+      - name: Build Site Blog
+        run: |
+          mkdocs build -f mkdocs_blog.yml
+          mv site/ site-blog/
+          ls
+        working-directory: ${{ github.workspace }}
+
+      - name: Build Site I18n
+        run: |
+          mkdocs build
+          mv site/ site-i18n/
+          ls
+        working-directory: ${{ github.workspace }}
+
+      - name: Build Site Blog Pass
+        run: |
+          mkdocs build -f mkdocs_blog_pass.yml
+          mv site/ site-blog-pass/
+          ls
+        working-directory: ${{ github.workspace }}
+
+      - name: Copy Assets
+        run: |
+          cp -r site-blog-pass/assets/ site-i18n/
+          cp site-blog-pass/encryptcontent-plugin.json site-i18n/
+        working-directory: ${{ github.workspace }}
+
+      - name: Copy Blog Private
+        run: |
+          cp -r site-blog-pass/blog_private/* site-i18n/blog_private/
+          sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/site-i18n/blog_private/index.html
+        working-directory: ${{ github.workspace }}
+
+      - name: Copy Blog Content
+        run: |
+          cp -r site-blog/blog/* site-i18n/blog/
+          mv site-i18n/ site/
+          ls site/blog/
+        working-directory: ${{ github.workspace }}
+
+      - name: Deploy MkDocs
+        run: |
+          mkdocs gh-deploy --force -d site/
+        working-directory: ${{ github.workspace }}
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
         run: rm passwords.yml
