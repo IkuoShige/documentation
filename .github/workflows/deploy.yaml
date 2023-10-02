@@ -21,7 +21,7 @@ jobs:
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin
       - run: mkdocs build -f mkdocs_blog.yml \
           && mv site/ site-blog/ \
-          && mkdocs build \
+          && mkdocs build -f mkdocs.yml \
           && mv site/ site-i18n/ \
           && mkdocs build -f mkdocs_blog_pass.yml
           && mv site/ site-blog-pass/
@@ -31,7 +31,7 @@ jobs:
           && sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/site-i18n/blog_private/index.html
           && cp -r site-blog/blog/* site-i18n/blog/
           && mv site-i18n/ site/
-          && mkdocs gh-deploy --force
+          && mkdocs gh-deploy -d site/
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
         run: rm passwords.yml
