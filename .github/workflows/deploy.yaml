@@ -16,7 +16,7 @@ jobs:
           PASSWORD_FILE: ${{ secrets.PASSWORDS }}
         run: |
           # パスワードファイルを作業ディレクトリにコピー
-          cp $PASSWORDS passwords.yml
+          cp $PASSWORD_FILE passwords.yml
 
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin
       - run: mkdocs build -f mkdocs_blog.yml \
