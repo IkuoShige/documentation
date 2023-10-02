@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: ikuoshige/mkdocs_docker:insider
+    steps:
+      - uses: actions/checkout@v2
+      - name: build and deploy
+#      - run: pip install mkdocs-material pymdown-extensions mkdocs-material=="9.*" mkdocs-static-i18n mkdocs-encryptcontent-plugin mkdocs-glightbox mkdocs-macros-plugin
+      - run: |
+          bash build.sh
+          mkdocs gh-deploy --force
