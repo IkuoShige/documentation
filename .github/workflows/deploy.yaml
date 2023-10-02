@@ -13,10 +13,10 @@ jobs:
       # GitHubシークレットからパスワードファイルを取得
       - name: Get password file from secret
         env:
-          PASSWORD_FILE: ${{ secrets.PASSWORD }}
+          PASSWORD_FILE: ${{ secrets.PASSWORDS }}
         run: |
           # パスワードファイルを作業ディレクトリにコピー
-          cp $PASSWORD passwords.yml
+          cp $PASSWORDS passwords.yml
 
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin
       - run: mkdocs build -f mkdocs_blog.yml \
