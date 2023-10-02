@@ -5,10 +5,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    container: ikuoshige/mkdocs_docker:insider
     steps:
       - uses: actions/checkout@v2
-      - name: build and deploy
-      - run: |
-          bash build.sh
-          mkdocs gh-deploy --force
+      - uses: actions/setup-python@v2
+        with:
+            python-versiuon: 3.9
+      - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin
+      - run: mkdocs gh-deploy --force
