@@ -7,5 +7,4 @@ encryptcontent.cache
 passwords.yml
 canary.py
 /tmp/
-/.github/
 mkdocs.yml.backup
