@@ -62,7 +62,7 @@ jobs:
 
       - name: Deploy MkDocs
         run: |
-          mkdocs gh-deploy --force -d site/
+          mkdocs gh-deploy --dirty --force
         working-directory: ${{ github.workspace }}
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
