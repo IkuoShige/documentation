@@ -143,6 +143,8 @@ ping 192.168.1.119
     -xfer_format   = 1    # 0-Pointcloud2(PointXYZRTL), 1-customized pointcloud format
     +xfer_format   = 0    # 0-Pointcloud2(PointXYZRTL), 1-customized pointcloud format
     ```
+    !!! note
+        `/livox/lidar`のメッセージ型を`sensor_msgs/msg/PointCloud2`に設定
 
     ### 3.5 hostpcとLIVOXのIPアドレスの設定
 
