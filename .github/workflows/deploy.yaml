@@ -53,6 +53,11 @@ jobs:
           mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
         working-directory: ${{ github.workspace }}
         # mkdocs build -f mkdocs_blog_pass.yml
+
+      # ワークフローの最後にパスワードファイルを削除
+      - name: Clean up
+        run: rm passwords.yml
+        
       - name: Checkout Branch
         run: |
           git checkout gh-pages
@@ -97,6 +102,3 @@ jobs:
           git checkout main
           mkdocs gh-deploy --dirty --force
         working-directory: ${{ github.workspace }}
-      # ワークフローの最後にパスワードファイルを削除
-      - name: Clean up
-        run: rm passwords.yml
