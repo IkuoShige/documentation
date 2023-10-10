@@ -57,7 +57,7 @@ jobs:
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
         run: rm passwords.yml
-        
+
       - name: Checkout Branch
         run: |
           git checkout gh-pages
@@ -99,6 +99,6 @@ jobs:
           git add -A
           git commit -m "update"
           git push origin gh-pages
-          git checkout main
-          mkdocs gh-deploy --dirty --force
+          # git checkout main
+          # mkdocs gh-deploy --dirty --force
         working-directory: ${{ github.workspace }}
