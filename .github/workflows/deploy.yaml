@@ -91,6 +91,7 @@ jobs:
 
       - name: Deploy MkDocs
         run: |
+          git checkout main
           mkdocs gh-deploy --dirty --force
         working-directory: ${{ github.workspace }}
       # ワークフローの最後にパスワードファイルを削除
