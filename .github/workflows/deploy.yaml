@@ -20,6 +20,14 @@ jobs:
 
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin mike
 
+      - name: check mike list previous
+          if: ${{ success() }}
+          continue-on-error: true
+          run: |
+            mike delete main-blog
+            mike delete main
+            mike delete main-blog-pass
+
       - name: setup mkdocs project
         if: ${{ success() }}
         env:
@@ -44,12 +52,14 @@ jobs:
 
       - name: Build Site I18n
         run: |
+          mike delete main
           mike deploy main -F mkdocs-mike.yml
         working-directory: ${{ github.workspace }}
         # mkdocs build
 
       - name: Build Site Blog Pass
         run: |
+          mike delete main-blog-pass
           mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
         working-directory: ${{ github.workspace }}
         # mkdocs build -f mkdocs_blog_pass.yml
