@@ -21,7 +21,7 @@ jobs:
       - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin mike
 
       - name: check mike list previous
-          continue-on-error: true
+          # continue-on-error: true
           run: |
             mike delete main-blog
             mike delete main
