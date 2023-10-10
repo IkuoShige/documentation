@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-            python-versiuon: 3.9
+            python-version: 3.9
       # GitHubシークレットからパスワードファイルを取得
       - name: Get password file from secret
         env:
@@ -31,12 +31,11 @@ jobs:
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git fetch
-
       - name: check mike list previous
-          run: |
-            mike delete main-blog
-            mike delete main
-            mike delete main-blog-pass
+        run: |
+          mike delete main-blog
+          mike delete main
+          mike delete main-blog-pass
 
       - name: manager versions.json
         run: |
