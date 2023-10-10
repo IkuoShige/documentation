@@ -35,7 +35,6 @@ jobs:
       - name: manager versions.json
         run: |
           export VERSIONS=$(cat versions.json)
-          echo "$VERSIONS"
 
       - name: Build Site Blog
         run: |
