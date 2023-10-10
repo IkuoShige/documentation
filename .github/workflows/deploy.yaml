@@ -91,6 +91,8 @@ jobs:
 
       - name: Deploy MkDocs
         run: |
+          git add -A
+          git commit -m "update"
           git push origin gh-pages
           git checkout main
           mkdocs gh-deploy --dirty --force
