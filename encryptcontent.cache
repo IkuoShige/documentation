@@ -1,6 +1,0 @@
-kdf_iterations: 100000
-obfuscate: {}
-password:
-  shigeikuo0208: 6fdaa4c015a2d7401b01cbd6f4f53074641476e09cb91edd83eaaa7f4c3f03f5;426180352130d6689fb1ca6599285c1f
-  test: 9208842a938bf15309fa9c4429178d6c89034b1e1f4739356250a6b73d43a9dd;ac04ad8b70f8bf736ffaceffb69f46bd
-userpass: {}
