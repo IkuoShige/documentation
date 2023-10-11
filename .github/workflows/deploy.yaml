@@ -71,7 +71,7 @@ jobs:
           git checkout gh-pages
 
       - name: Copy Assets
-         run: |
+        run: |
           cp -r site-blog-pass/assets/ site-i18n/
           cp site-blog-pass/encryptcontent-plugin.json site-i18n/
         working-directory: ${{ github.workspace }}
