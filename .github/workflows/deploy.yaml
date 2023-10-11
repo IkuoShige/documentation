@@ -46,6 +46,7 @@ jobs:
         run: |
           #mike deploy main-blog -F mkdocs-mike_blog.yml
           mkdocs build -f mkdocs_blog.yml
+          mv site/ site-blog/
         working-directory: ${{ github.workspace }}
 
       - name: Build Site I18n
@@ -53,6 +54,7 @@ jobs:
           #mike delete main
           #mike deploy main -F mkdocs-mike.yml
           mkdocs build
+          mv site/ site-i18n/
         working-directory: ${{ github.workspace }}
 
       - name: Build Site Blog Pass
@@ -60,6 +62,7 @@ jobs:
           #mike delete main-blog-pass
           #mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
           mkdocs build -f mkdocs_blog_pass.yml
+          mv site/ site-blog-pass/
         working-directory: ${{ github.workspace }}
 
       # ワークフローの最後にパスワードファイルを削除
