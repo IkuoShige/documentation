@@ -72,7 +72,7 @@ jobs:
 
       - name: Copy Assets
          run: |
-           cp -r site-blog-pass/assets/ site-i18n/
+          cp -r site-blog-pass/assets/ site-i18n/
           cp site-blog-pass/encryptcontent-plugin.json site-i18n/
         working-directory: ${{ github.workspace }}
 
