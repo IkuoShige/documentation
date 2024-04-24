@@ -66,6 +66,7 @@ nav:
   - blog_private/index.md
 plugins:
 - search: {}
+    lang: ja
 - encryptcontent:
     title_prefix: ''
     summary: ''
@@ -115,7 +116,7 @@ plugins:
 - blog:
     blog_dir: blog_private
 extra:
-  homepage: https://example.com
+  homepage: https://ikuoshige.github.io/documentation/
   logo:
     icon: developer_board
   manifest: manifest.webmanifest

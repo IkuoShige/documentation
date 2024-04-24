@@ -13,8 +13,8 @@ copyright: Copyright &copy; 2023 Ikuo Shige
 theme:
     name: material
     language: ja
-    #logo: 'https://i.gyazo.com/667c1d52a447f38d53cd52beadbb40f1.png'
-    #favicon: 'https://i.gyazo.com/ed2afbfd0328143ef7e2c0418172348f.png'
+    #logo: ''
+    #favicon: ''
     # 使用可能色は定義された21色
     #    red, pink, purple, deep purple, indigo, blue, light blue, cyan,
     #    teal,  green, light green, lime, yellow, amber, orange,
@@ -81,6 +81,7 @@ nav:
 # Plugins
 plugins:
     - search: {}
+        lang: ja
 
     - i18n:
         reconfigure_material: true
@@ -174,7 +175,7 @@ plugins:
     #- blog
 
 extra:
-    homepage: https://example.com
+    homepage: https://ikuoshige.github.io/documentation/
     logo:
         # 利用可能なアイコンは以下を参照
         # https://material.io/resources/icons/?icon=description&style=baseline
@@ -184,6 +185,8 @@ extra:
     social:
       - icon: fontawesome/brands/github
         link: https://github.com/IkuoShige
+    #version:
+    #  provider: mike
 
 extra_css:
   - 'css/lightbox.css'

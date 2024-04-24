@@ -81,6 +81,7 @@ nav:
 # Plugins
 plugins:
     - search: {}
+        lang: ja
 
     #- i18n:
     #    reconfigure_material: true
@@ -174,7 +175,7 @@ plugins:
     #        - 'logo.svg'
 
 extra:
-    homepage: https://example.com
+    homepage: https://ikuoshige.github.io/documentation/
     logo:
         # 利用可能なアイコンは以下を参照
         # https://material.io/resources/icons/?icon=description&style=baseline
