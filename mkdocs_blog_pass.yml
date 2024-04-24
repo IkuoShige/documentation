@@ -65,7 +65,7 @@ nav:
 - Blog_private:
   - blog_private/index.md
 plugins:
-- search: {}
+- search:
     lang: ja
 - encryptcontent:
     title_prefix: ''
