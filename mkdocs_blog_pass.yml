@@ -70,6 +70,8 @@ plugins:
 - exclude-search:
     exclude:
       - blog_private/*
+      - document/todo_today.md
+      - document/todo_today.en.md
 - encryptcontent:
     title_prefix: ''
     summary: ''
