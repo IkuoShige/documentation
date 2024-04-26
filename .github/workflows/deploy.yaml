@@ -107,10 +107,14 @@ jobs:
 
 
       - name: Deploy MkDocs
-        run: |
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_kay: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./site
+        # run: |
           #git add -A
           #git commit -m "update"
           #git push origin gh-pages
           #git checkout main
-          mkdocs gh-deploy --dirty --force
-        working-directory: ${{ github.workspace }}
+          # mkdocs gh-deploy --dirty --force
+        # working-directory: ${{ github.workspace }}
