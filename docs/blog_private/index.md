@@ -1,2 +1,2 @@
-# Blog_private
+# Blog_private { data-search-exclude }
 
