@@ -1,3 +1,8 @@
+---
+serarch:
+  exclude: true
+---
+
 データ
 ------
 
