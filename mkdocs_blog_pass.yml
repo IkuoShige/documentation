@@ -67,6 +67,9 @@ nav:
 plugins:
 - search:
     lang: ja
+- exclude-search:
+    exclude:
+      - blog_private/*
 - encryptcontent:
     title_prefix: ''
     summary: ''

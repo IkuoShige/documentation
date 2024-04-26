@@ -18,7 +18,7 @@ jobs:
           # パスワードファイルを作業ディレクトリにコピー
           echo "$PASSWORD_FILE" > passwords.yml
 
-      - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin mike
+      - run: pip install mkdocs-material=="9.*" mkdocs-macros-plugin mkdocs-glightbox mkdocs-static-i18n mkdocs-encryptcontent-plugin mike mkdocs-exclude-search
 
       - name: setup mkdocs project
         if: ${{ success() }}
