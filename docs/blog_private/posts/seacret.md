@@ -6,7 +6,7 @@ categories:
   - terminal
   - Performance
 search:
-  - exclude: true
+  exclude: true
 ---
 
 # 非公開_private
