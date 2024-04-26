@@ -1,9 +1,10 @@
+
 ---
 search:
-  exclude: true
+  boost: 0.5
 ---
 
-データ
+# データ
 ------
 
 -   Python
