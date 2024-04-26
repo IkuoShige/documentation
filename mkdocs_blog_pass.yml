@@ -69,7 +69,7 @@ plugins:
     lang: ja
 - exclude-search:
     exclude:
-      - blog_private/*
+      - blog_private/posts/*
       - document/todo_today.md
       - document/todo_today.en.md
 - encryptcontent:
