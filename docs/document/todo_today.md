@@ -1,4 +1,4 @@
-# データ
+# データ { data-search-exclude }
 ------
 
 -   Python
