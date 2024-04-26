@@ -1,7 +1,6 @@
-
 ---
-serarch:
-  boost: 0.5
+search:
+  - boost: 0.5
 ---
 
 # データ

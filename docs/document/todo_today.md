@@ -1,7 +1,6 @@
-
 ---
 search:
-  boost: 0.5
+  - boost: 0.5
 ---
 
 # データ
