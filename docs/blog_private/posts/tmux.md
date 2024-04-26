@@ -5,6 +5,8 @@ authors:
 categories:
   - terminal
   - Performance
+search:
+  exclude: true
 ---
 
 # tmuxの基本ガイド
