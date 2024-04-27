@@ -32,89 +32,89 @@ jobs:
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git fetch
 
-      - name: check mike list previous
-        run: |
-          #mike delete main-blog
-          #mike delete main
-          #mike delete main-blog-pass
+      # - name: check mike list previous
+      #   run: |
+      #     mike delete main-blog
+      #     mike delete main
+      #     mike delete main-blog-pass
 
-      - name: manager versions.json
-        run: |
-          export VERSIONS=$(cat versions.json)
+      # - name: manager versions.json
+      #   run: |
+      #     export VERSIONS=$(cat versions.json)
 
       - name: Build Site Blog
         run: |
-          mike deploy main-blog -F mkdocs-mike_blog.yml
-          #mkdocs build -f mkdocs_blog.yml
-          #mv site/ site-blog/
+          # mike deploy main-blog -F mkdocs-mike_blog.yml
+          mkdocs build -f mkdocs_blog.yml
+          mv site/ site-blog/
         working-directory: ${{ github.workspace }}
 
       - name: Build Site I18n
         run: |
           #mike delete main
-          mike deploy main -F mkdocs-mike.yml
-          #mkdocs build
-          #mv site/ site-i18n/
+          # mike deploy main -F mkdocs-mike.yml
+          mkdocs build
+          mv site/ site-i18n/
         working-directory: ${{ github.workspace }}
 
       - name: Build Site Blog Pass
         run: |
           #mike delete main-blog-pass
-          mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
-          #mkdocs build -f mkdocs_blog_pass.yml
-          #mv site/ site-blog-pass/
+          # mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
+          mkdocs build -f mkdocs_blog_pass.yml
+          mv site/ site-blog-pass/
         working-directory: ${{ github.workspace }}
 
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
         run: rm passwords.yml
 
-      - name: Checkout Branch
-        run: |
-          git checkout gh-pages
+      # - name: Checkout Branch
+      #   run: |
+      #     git checkout gh-pages
 
-      #- name: Copy Assets
-        #run: |
-          #cp -r site-blog-pass/assets/ site-i18n/
-          #cp site-blog-pass/encryptcontent-plugin.json site-i18n/
+      - name: Copy Assets
+        run: |
+          cp -r site-blog-pass/assets/ site-i18n/
+          cp site-blog-pass/encryptcontent-plugin.json site-i18n/
         working-directory: ${{ github.workspace }}
 
-      #- name: Copy Blog Private
-        #run: |
-          #cp -r site-blog-pass/blog_private/* site-i18n/blog_private/
-          #sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/site-i18n/blog_private/index.html
-        #working-directory: ${{ github.workspace }}
-
-      #- name: Copy Blog Content
-        #run: |
-          #cp -r site-blog/blog/* site-i18n/blog/
-          #mv site-i18n/ site/
-          #ls site/blog/
-        #working-directory: ${{ github.workspace }}
-
-      - name: merge html
+      - name: Copy Blog Private
         run: |
-          cp -r main-blog-pass/assets/ main/
-          cp main-blog-pass/encryptcontent-plugin.json main/
-          cp -r main-blog-pass/blog_private/* main/blog_private/
-          sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/main/blog_private/index.html
-          cp -r main-blog/blog/* main/blog/
+          cp -r site-blog-pass/blog_private/* site-i18n/blog_private/
+          sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/site-i18n/blog_private/index.html
+        working-directory: ${{ github.workspace }}
+
+      - name: Copy Blog Content
+        run: |
+          cp -r site-blog/blog/* site-i18n/blog/
+          mv site-i18n/ site/
+          ls site/blog/
+        working-directory: ${{ github.workspace }}
+
+      # - name: merge html
+      #   run: |
+      #     cp -r main-blog-pass/assets/ main/
+      #     cp main-blog-pass/encryptcontent-plugin.json main/
+      #     cp -r main-blog-pass/blog_private/* main/blog_private/
+      #     sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/main/blog_private/index.html
+      #     cp -r main-blog/blog/* main/blog/
       
-      - name: Write versions.json
-        run: |
-          echo "$VERSIONS"
-          echo "$VERSIONS" > versions.json
+      # - name: Write versions.json
+      #   run: |
+      #     echo "$VERSIONS"
+      #     echo "$VERSIONS" > versions.json
 
 
       - name: Deploy MkDocs
-        #uses: peaceiris/actions-gh-pages@v4
-        #with:
-          #github_token: ${{ secrets.GITHUB_TOKEN }}
-          #publish_dir: ./site
-        run: |
-          git add -A
-          git commit -m "update"
-          git push origin gh-pages
-          #git checkout main
-          #mkdocs gh-deploy --dirty --force
-        working-directory: ${{ github.workspace }}
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+        # run: |
+        #   git add -A
+        #   git commit -m "update"
+        #   git push origin gh-pages
+        #   #git checkout main
+        #   #mkdocs gh-deploy --dirty --force
+        # working-directory: ${{ github.workspace }}
