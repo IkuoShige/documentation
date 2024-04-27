@@ -34,9 +34,9 @@ jobs:
 
       - name: check mike list previous
         run: |
-          mike delete main-blog
-          mike delete main
-          mike delete main-blog-pass
+          #mike delete main-blog
+          #mike delete main
+          #mike delete main-blog-pass
 
       - name: manager versions.json
         run: |
