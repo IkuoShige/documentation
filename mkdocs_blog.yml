@@ -85,9 +85,9 @@ plugins:
     - exclude-search:
         exclude:
           - blog_private/posts/*
-          - en/*
           - document/todo_today.md
           - document/todo_today.en.md
+        exclude_unreferenced: true
 
     #- i18n:
     #    reconfigure_material: true
