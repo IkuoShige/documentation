@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/Jetson/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/Jetson/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/Jetson/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog/posts/seacret/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog/posts/seacret/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog/posts/seacret/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog/posts/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog/posts/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog/posts/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog_private/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog_private/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog_private/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog_private/posts/seacret/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog_private/posts/seacret/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog_private/posts/seacret/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/blog_private/posts/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/blog_private/posts/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/blog_private/posts/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/fast_lio/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/fast_lio/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/fast_lio/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/jetpack_install/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/jetpack_install/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/jetpack_install/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/jetson_clone/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/jetson_clone/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/jetson_clone/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/jetson_test/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/jetson_test/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/jetson_test/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/livox/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/livox/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/livox/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/mkdocs_colum/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/mkdocs_colum/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/mkdocs_colum/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/sdkmanager/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/sdkmanager/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/sdkmanager/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/tmux_application/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/tmux_application/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/tmux_application/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/document/todo_today/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main/document/todo_today/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/mainen/document/todo_today/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/main"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/Jetson/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/Jetson/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainJetson/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog/posts/seacret/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog/posts/seacret/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog/posts/seacret/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog/posts/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog/posts/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog/posts/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog_private/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog_private/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog_private/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog_private/posts/seacret/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog_private/posts/seacret/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog_private/posts/seacret/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/blog_private/posts/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/blog_private/posts/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/mainblog_private/posts/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/fast_lio/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/fast_lio/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/fast_lio/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/jetpack_install/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/jetpack_install/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/jetpack_install/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/jetson_clone/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/jetson_clone/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/jetson_clone/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/jetson_test/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/jetson_test/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/jetson_test/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/livox/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/livox/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/livox/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/mkdocs_colum/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/mkdocs_colum/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/mkdocs_colum/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/sdkmanager/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/sdkmanager/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/sdkmanager/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/tmux/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/tmux/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/tmux/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/tmux_application/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/tmux_application/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/tmux_application/"/>
+    </url>
+    <url>
+        <loc>https://IkuoShige.github.io/documentation/main/en/document/todo_today/</loc>
+        <lastmod>2024-04-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://IkuoShige.github.io/documentation/main/en/document/todo_today/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://IkuoShige.github.io/documentation/maindocument/todo_today/"/>
+    </url>
+</urlset>
