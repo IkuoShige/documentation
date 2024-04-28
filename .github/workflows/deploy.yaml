@@ -43,18 +43,18 @@ jobs:
           export VERSIONS=$(cat versions.json)
         working-directory: ${{ github.workspace  }}
 
-      - name: Build Site Blog
-        run: |
-          mike deploy main-blog -F mkdocs-mike_blog.yml
-          # mkdocs build -f mkdocs_blog.yml
-          # mv site/ site-blog/
-        working-directory: ${{ github.workspace }}
-
       - name: Build Site I18n
         run: |
           mike deploy main -F mkdocs-mike.yml
           # mkdocs build
           # mv site/ site-i18n/
+        working-directory: ${{ github.workspace }}
+
+      - name: Build Site Blog
+        run: |
+          mike deploy main-blog -F mkdocs-mike_blog.yml
+          # mkdocs build -f mkdocs_blog.yml
+          # mv site/ site-blog/
         working-directory: ${{ github.workspace }}
 
       - name: Build Site Blog Pass
@@ -67,6 +67,11 @@ jobs:
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
         run: rm passwords.yml
+        working-directory: ${{ github.workspace }}
+      
+      - name: set latest
+        run: |
+          mike set-default latest
         working-directory: ${{ github.workspace }}
 
       - name: Checkout Branch
