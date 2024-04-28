@@ -69,7 +69,9 @@ jobs:
 
       # ワークフローの最後にパスワードファイルを削除
       - name: Clean up
-        run: rm passwords.yml
+        run: |
+          rm passwords.yml
+          rm encryptcontent.cache
         working-directory: ${{ github.workspace }}
 
       - name: Checkout Branch
