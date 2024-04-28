@@ -61,6 +61,7 @@ jobs:
       - name: Build Site Blog Pass
         run: |
           mike deploy main-blog-pass -F mkdocs-mike_blog_pass.yml
+          mike deploy 0.0.1 -F mkdocs-mike_blog_pass.yml
           # mkdocs build -f mkdocs_blog_pass.yml
           # mv site/ site-blog-pass/
         working-directory: ${{ github.workspace }}
