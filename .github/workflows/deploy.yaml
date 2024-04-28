@@ -108,6 +108,7 @@ jobs:
         run: |
           # echo "$VERSIONS"
           # echo "$VERSIONS" > versions.json
+          rm versions.json
           git clone https://raw.githubusercontent.com/IkuoShige/documentation/main/versions.json
         working-directory: ${{ github.workspace }}
 
