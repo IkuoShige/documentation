@@ -69,11 +69,6 @@ jobs:
       - name: Clean up
         run: rm passwords.yml
         working-directory: ${{ github.workspace }}
-      
-      # - name: set latest
-      #   run: |
-      #     mike set-default latest
-      #   working-directory: ${{ github.workspace }}
 
       - name: Checkout Branch
         run: |
