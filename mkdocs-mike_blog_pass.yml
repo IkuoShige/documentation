@@ -4,7 +4,7 @@ site_author: Ikuo Shige
 repo_name: IkuoShige/documentation
 repo_url: https://github.com/IkuoShige/documentation
 repo: fontawesome/brands/github
-copyright: Copyright &copy; 2023 Ikuo Shige
+copyright: Copyright &copy; 2023 - 2024 Ikuo Shige
 theme:
   name: material
   language: ja
@@ -65,7 +65,13 @@ nav:
 - Blog_private:
   - blog_private/index.md
 plugins:
-- search: {}
+- search:
+    lang: ja
+- exclude-search:
+    exclude:
+      - blog_private/posts/*
+      - document/todo_today.md
+      - document/todo_today.en.md
 - encryptcontent:
     title_prefix: ''
     summary: ''

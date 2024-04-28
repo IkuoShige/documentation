@@ -87,7 +87,6 @@ plugins:
           - blog_private/posts/*
           - document/todo_today.md
           - document/todo_today.en.md
-        exclude_unreferenced: true
 
     - i18n:
         reconfigure_material: true
