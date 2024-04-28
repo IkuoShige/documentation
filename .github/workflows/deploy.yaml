@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Site I18n
         run: |
-          mike deploy --update-aliases main_0.1 latest -F mkdocs-mike.yml
+          mike deploy --push --update-aliases main_0.1 latest -F mkdocs-mike.yml
           # mike deploy 0.0.1 -F mkdocs-mike.yml
           # mkdocs build
           # mv site/ site-i18n/
