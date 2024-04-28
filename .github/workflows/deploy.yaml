@@ -100,12 +100,15 @@ jobs:
           cp -r main-blog-pass/blog_private/* main/blog_private/
           sed -i 's/<a class="md-tabs__link" href="..\/blog_private\/">/<a class="md-tabs__link" href="..\/blog\/">/' ${PWD}/main/blog_private/index.html
           cp -r main-blog/blog/* main/blog/
+          rm -rf main-blog-pass
+          rm -rf main-blog
         working-directory: ${{ github.workspace }}
       
       - name: Write versions.json
         run: |
-          echo "$VERSIONS"
-          echo "$VERSIONS" > versions.json
+          # echo "$VERSIONS"
+          # echo "$VERSIONS" > versions.json
+          git clone https://raw.githubusercontent.com/IkuoShige/documentation/main/versions.json
         working-directory: ${{ github.workspace }}
 
 
