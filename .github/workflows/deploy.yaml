@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Site I18n
         run: |
-          mike deploy main -F mkdocs-mike.yml
+          mike deploy --update-aliases main latest -F mkdocs-mike.yml
           # mkdocs build
           # mv site/ site-i18n/
         working-directory: ${{ github.workspace }}
