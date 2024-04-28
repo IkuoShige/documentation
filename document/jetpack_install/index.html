@@ -1,1606 +1,687 @@
 
-<!doctype html>
-<html lang="ja" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-        <meta name="author" content="Ikuo Shige">
-      
-      
-        <link rel="canonical" href="https://IkuoShige.github.io/documentation/document/jetpack_install/">
-      
-      
-        <link rel="prev" href="../../Jetson/">
-      
-      
-        <link rel="next" href="../sdkmanager/">
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
-    
-    
-      
-        <title>NVIDIA SDKManagerでjetpackのインストール - ドキュメント</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../css/lightbox.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#jetson" class="md-skip">
+<html class="no-js" lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Ikuo Shige" name="author"/>
+<link href="https://IkuoShige.github.io/documentation/main-blog-pass/document/jetpack_install/" rel="canonical"/>
+<link href="../../Jetson/" rel="prev"/>
+<link href="../sdkmanager/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.19" name="generator"/>
+<title>NVIDIA SDKManagerでjetpackのインストール - ドキュメント</title>
+<link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/lightbox.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="blue" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#jetson">
           コンテンツにスキップ
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
-    <a href="https://ikuoshige.github.io/documentation/" title="ドキュメント" class="md-header__button md-logo" aria-label="ドキュメント" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="ヘッダー" class="md-header__inner md-grid">
+<a aria-label="ドキュメント" class="md-header__button md-logo" data-md-component="logo" href="https://example.com" title="ドキュメント">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             ドキュメント
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               NVIDIA SDKManagerでjetpackのインストール
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="ライトモードに切り替えます。"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="ライトモードに切り替えます。" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="ダークモードに切り替えます。"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="ダークモードに切り替えます。" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="言語切り替え">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
-    </button>
-    <div class="md-select__inner">
-      <ul class="md-select__list">
-        
-          <li class="md-select__item">
-            <a href="./" hreflang="ja" class="md-select__link">
-              Japanese
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../../en/document/jetpack_install/" hreflang="en" class="md-select__link">
-              English
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 </div>
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="検索">
-        
-        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="ライトモードに切り替えます。" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="ライトモードに切り替えます。">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="ダークモードに切り替えます。" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="ダークモードに切り替えます。">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="検索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="検索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="検索" class="md-search__options">
+<button aria-label="クリア" class="md-search__icon md-icon" tabindex="-1" title="クリア" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             検索を初期化
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/IkuoShige/documentation" title="リポジトリへ" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/IkuoShige/documentation" title="リポジトリへ">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     IkuoShige/documentation
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-            
-<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+<div class="md-container" data-md-component="container">
+<nav aria-label="タブ" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
           
   
   Home
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../todo_today/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../todo_today/">
           
   
   Document
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../Jetson/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../Jetson/">
           
   
   Jetson
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../blog/">
           
   
   Blog_public
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../blog_private/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../blog_private/">
           
   
   Blog_private
 
         </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="ナビゲーション" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="https://ikuoshige.github.io/documentation/" title="ドキュメント" class="md-nav__button md-logo" aria-label="ドキュメント" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="ナビゲーション" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ドキュメント" class="md-nav__button md-logo" data-md-component="logo" href="https://example.com" title="ドキュメント">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     ドキュメント
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/IkuoShige/documentation" title="リポジトリへ" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/IkuoShige/documentation" title="リポジトリへ">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     IkuoShige/documentation
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
     Home
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
             Home
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
     このサイトについて
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
     Document
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             Document
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../todo_today/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../todo_today/">
+<span class="md-ellipsis">
     todo today
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
     Jetson
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
             Jetson
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Jetson/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Jetson/">
+<span class="md-ellipsis">
     index
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../jetson_test/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../jetson_test/">
+<span class="md-ellipsis">
     Jetson_test
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     NVIDIA SDKManagerでjetpackのインストール
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     NVIDIA SDKManagerでjetpackのインストール
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="目次" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       目次
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-nvidia-sdk-managerjetpack" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia-sdk-managerjetpack">
+<span class="md-ellipsis">
       1. NVIDIA SDK ManagerでJetpackのインストール
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. NVIDIA SDK ManagerでJetpackのインストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-nvidia-sdk-manage" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="1. NVIDIA SDK ManagerでJetpackのインストール" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11-nvidia-sdk-manage">
+<span class="md-ellipsis">
       1.1 NVIDIA SDK Manageとは
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#12-nvidia-sdk-manager" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12-nvidia-sdk-manager">
+<span class="md-ellipsis">
       1.2 NVIDIA SDK Managerの用意
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#13-sdk-managerjetpack" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#13-sdk-managerjetpack">
+<span class="md-ellipsis">
       1.3 SDK Managerを用いたJetpackのインストール
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-jetson" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-jetson">
+<span class="md-ellipsis">
       2. Jetsonのセットアップ
     </span>
-  </a>
-  
+</a>
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sdkmanager/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sdkmanager/">
+<span class="md-ellipsis">
     Nvidia-sdkmanager-docker-gui
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../jetson_clone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../jetson_clone/">
+<span class="md-ellipsis">
     Jetsonのクローン/リストア
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
     tmux
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
             tmux
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tmux/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tmux/">
+<span class="md-ellipsis">
     tmuxの基本ガイド
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tmux_application/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tmux_application/">
+<span class="md-ellipsis">
     tmuxを応用したscript
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
     Livox
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
             Livox
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../livox/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../livox/">
+<span class="md-ellipsis">
     Livox MID-360 環境構築
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../fast_lio/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fast_lio/">
+<span class="md-ellipsis">
     3次元地図作成(FAST_LIO)
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-ellipsis">
     MkDocs
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
             MkDocs
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mkdocs_colum/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mkdocs_colum/">
+<span class="md-ellipsis">
     コラム
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
     Jetson
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
             Jetson
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Jetson/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Jetson/">
+<span class="md-ellipsis">
     index
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     NVIDIA SDKManagerでjetpackのインストール
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     NVIDIA SDKManagerでjetpackのインストール
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="目次" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       目次
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-nvidia-sdk-managerjetpack" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia-sdk-managerjetpack">
+<span class="md-ellipsis">
       1. NVIDIA SDK ManagerでJetpackのインストール
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. NVIDIA SDK ManagerでJetpackのインストール">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-nvidia-sdk-manage" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="1. NVIDIA SDK ManagerでJetpackのインストール" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11-nvidia-sdk-manage">
+<span class="md-ellipsis">
       1.1 NVIDIA SDK Manageとは
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#12-nvidia-sdk-manager" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12-nvidia-sdk-manager">
+<span class="md-ellipsis">
       1.2 NVIDIA SDK Managerの用意
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#13-sdk-managerjetpack" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#13-sdk-managerjetpack">
+<span class="md-ellipsis">
       1.3 SDK Managerを用いたJetpackのインストール
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-jetson" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-jetson">
+<span class="md-ellipsis">
       2. Jetsonのセットアップ
     </span>
-  </a>
-  
+</a>
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sdkmanager/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sdkmanager/">
+<span class="md-ellipsis">
     Nvidia-sdkmanager-docker-gui
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../jetson_clone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../jetson_clone/">
+<span class="md-ellipsis">
     Jetsonのクローン/リストア
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
     Blog_public
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
             Blog_public
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../blog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/">
+<span class="md-ellipsis">
     Blog
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
     Blog_private
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
             Blog_private
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../blog_private/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog_private/">
+<span class="md-ellipsis">
     Blog_private
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
-<!--
-# sdkmanagerでjetpackのインストール
-
-## comming soon ... 
--->
-
-<h1 id="jetson">Jetson マニュアル</h1>
-<p>このマニュアルでは、Jetsonデバイスをセットアップし、クローンするための手順を説明します。</p>
-<h2 id="1-nvidia-sdk-managerjetpack">1. NVIDIA SDK ManagerでJetpackのインストール</h2>
-<h3 id="11-nvidia-sdk-manage">1.1 NVIDIA SDK Manageとは</h3>
-<p>NVIDIA Jetsonプラットフォーム、NVIDIA DRIVEプラットフォームの開発環境をセットアップするツール。</p>
-<h3 id="12-nvidia-sdk-manager">1.2 NVIDIA SDK Managerの用意</h3>
-<p>ここでは、NVIDIA SDK Managerを用意する方法を2つ紹介します。</p>
-<ul>
-<li>nativeのNVIDIA SDK Managerを使用する</li>
-<li>Nvidia-sdkmanager-docker-guiを使用する</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">nativeのNVIDIA SDK Manager</label><label for="__tabbed_1_2">Nvidia-sdkmanager-docker</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>NVIDIA SDK Managerをaptでインストールします。</p>
-<p><a href="https://developer.download.nvidia.com/sdkmanager/redirects/sdkmanager-deb.html">NVIDIA公式サイト</a>より、debファイルをダウンロード</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>./sdkmanager_1.9.3-10904_amd64.deb
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>GitHubにて公開されている、以下のパッケージを使用します。詳しいやり方はこのリポジトリの<a href="https://github.com/IkuoShige/Nvidia-sdkmanager-docker-gui/blob/main/README.md">README.md</a>を参照してください。
-<iframe class="hatenablogcard" style="width:100%;height:155px;max-width:680px;" title="%text%" src="https://hatenablog-parts.com/embed?url=https://github.com/IkuoShige/Nvidia-sdkmanager-docker-gui" width="300" height="150" frameborder="0" scrolling="no"> </iframe> </p>
-<p>このリポジトリのclone
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/IkuoShige/Nvidia-sdkmanager-docker-gui.git
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Nvidia-sdkmanager-docker-gui/
-</span></code></pre></div></p>
-<p>ダウンロードするにはNvidiaのアカウントにログインする必要があるため、下記のNvidiaのリンクからログインして直接ダウンロードしてください:</p>
-<ul>
-<li><a href="https://developer.nvidia.com/sdk-manager">https://developer.nvidia.com/sdk-manager</a></li>
-</ul>
-<p>ダウンロードしたファイルからDockerイメージを作成
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>docker<span class="w"> </span>load<span class="w"> </span>-i<span class="w"> </span>~/Downloads/sdkmanager-1.9.3.10904-Ubuntu_20.04_docker.tar.gz
-</span></code></pre></div></p>
-<p>Dockerイメージを元にコンテナをbuild:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>./build_docker_images.sh<span class="w"> </span>--ubuntu-version<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>--docker-version<span class="w"> </span><span class="m">1</span>.9.3.10904
-</span></code></pre></div></p>
-</div>
-</div>
-</div>
-<h3 id="13-sdk-managerjetpack">1.3 SDK Managerを用いたJetpackのインストール</h3>
-<p>NVIDIA SDK Managerの起動</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">nativeのNVIDIA SDK Manager</label><label for="__tabbed_2_2">Nvidia-sdkmanager-docker</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>sdkmanager
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>./launch_container.sh<span class="w"> </span>--ubuntu-version<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>--jetpack-home<span class="w"> </span>./jetpack_home
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>$<span class="w"> </span>sdkmanager
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<p><img alt="Screenshot" src="../../img/sdkmanager_login.png" /></p>
-<!--
-<figure markdown>
-  ![Screenshot](./../img/sdkmanager_login.png){ width="300" align="center" }
-  <figcaption>Image caption</figcaption>
-</figurer>
--->
-
-<!--
-<a href="../images/sdkmanager_login.png" data-lightbox="login">Image #1</a>
--->
-
-<p><img alt="Screenshot" src="../../img/sdkmanager_privacy.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_home.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_select_board.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step2.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step2_2.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step3_downloading.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step3_after_creatingOSimage.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step3_manual_setup.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step3_strage_device.png" /></p>
-<p><a href="https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html">これ</a>みて書く or 録画した映像から画像を取得して自分で書くか</p>
-<h2 id="2-jetson">2. Jetsonのセットアップ</h2>
-<ol>
-<li>JetPackのダウンロードが完了するまで待ちます。</li>
-<li>Jetsonが起動すると、設定したパスワードでログインします。</li>
-<li>WiFiの設定を行います。<ul>
-<li>IPアドレスを固定します。</li>
-<li>有線または無線接続を選択します。</li>
-<li>設定を完了したらWiFiを再起動します。</li>
-</ul>
+</a>
 </li>
-<li>ボード上のジャンパ線を外します。</li>
-</ol>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step3_install_components.png" /></p>
-<p><img alt="Screenshot" src="../../img/sdkmanager_step4_finish.png" /></p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    過去の投稿
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            過去の投稿
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog_private/archive/2023/">
+<span class="md-ellipsis">
+    2023
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<span class="md-ellipsis">
+    カテゴリー
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+            カテゴリー
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog_private/category/performance/">
+<span class="md-ellipsis">
+    Performance
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog_private/category/terminal/">
+<span class="md-ellipsis">
+    terminal
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div><div id="mkdocs-encrypted-content" style="display:none">uKG2g+rhPBJz5MvhsRaWRA==;9N7ReqiWPV8LsnRzC0PJmw==</div>
+<div id="mkdocs-decrypted-content">
+<form class="md-content__inner md-typeset" id="mkdocs-decrypt-form">
+<h1></h1>
+<p>Legitimation required.</p>
+<input class="md-input" id="mkdocs-content-password" placeholder="Password" type="password"/>
+<button class="md-button md-button--primary" id="mkdocs-decrypt-button">ENTER</button>
+<p id="mkdocs-decrypt-msg"></p>
+</form>
+</div>
+<script type="text/javascript">
+var encryptcontent_id = "encryptcontent_plugin_2";
+var encryptcontent_path = "documentation/document/jetpack_install/";
+var decryption_failure_message = "Wrong user name or password.";
+var encryptcontent_keystore = ["SJN+bsd8x6pN4or3WL52fQ==;PUD1Rvi08ST3twN1C8JR/rEFWj1JPlkw4ErzjyZWIBMQupQcTrpYpz2LCxNCVfB9ZsUHB+YXAQ2EMSjImlOWMhrzhN06PYdtXBwV6HSy9FzXMceQcwWr//UNLVKozgUT;6aeWa6v6Z0e4RyyWzV7R/g=="];
+var encryptcontent_obfuscate = 0;
+var inject_something = {'md-content': ['div', 'class']};
+</script>
+<script defer="" src="../../assets/javascripts/decrypt-contents.js" type="text/javascript"></script></div><div class="md-content" data-md-component="content" style="display:none">9uC3T/qf+0jaKuJ9uRCTJg==;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</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
   ページトップへ戻る
 </button>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="フッター" >
-        
-          
-          <a href="../../Jetson/" class="md-footer__link md-footer__link--prev" aria-label="前: index">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                前
-              </span>
-              <div class="md-ellipsis">
-                index
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../sdkmanager/" class="md-footer__link md-footer__link--next" aria-label="次: Nvidia-sdkmanager-docker-gui">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                次
-              </span>
-              <div class="md-ellipsis">
-                Nvidia-sdkmanager-docker-gui
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      Copyright &copy; 2023 - 2024 Ikuo Shige
+</main>
+<footer class="md-footer">
+<nav aria-label="フッター" class="md-footer__inner md-grid" style="display:none">OadxH8plf4T3f01Wx9eX4w==;11+IDL9OBMEZrGhBGBfeWNLTGRkk/uqUx0mJUxKWyqXEaeYEhu1DHIN4XaKBgyaT+dHW+iJFKdj0VDXL1iLYDof1Vc1NnxXUkNHFedWT/ONdfpGTs/tRFzptK/FtR2A3AvGW4yz84ne73elIseOaGBZuejbfoXyKPBIrwGQ1g/qtFS8mnJrpJqjee0ZDB0ifQxhman3xKo+K4LRLzGI/uUmEuLiJgyzu2JUg7xofwBuOhBxU+XZ50aSRfwjtMSuhFevscnkQiLDq+bBK/2gbhHSSOs5kGsgCfC456C48UYk7BJNmEHpAkz3uKrvv2+Jwqnz/9dPRt4+RilyKAjIwU3zHE9HCUAFFKLDzYr/96BhdvAphx9BP5BP4CrN0oUqBZNftYSR41FXwoa0ftHytpWWl2/voFBaUgI7l2D6jFWbMz38uWrta+y+gFSO+gAsJu7gCoHT2XHNfPRaM423Dt5+nUb4xbQhAzAHbBL1OUNULh6zCP9cpMJr5mVQ6/1og0NM5lzhk1RLclempbxtw/PuGIFEB906QUV6qN2MXBQ4GChFY6VDsTHcL/lSoT6Y7peDMMSxiU6gPtLK0CFSjTuuYX31IcjX0pm0vOLvZ0rLBsfpROGiyeBXi4XOSjhziMgmsVtoE7XPSI8PBHsPHnMS4J3JP8l/rrNp5R/K7aRKYDq1sRMVyd1xfKviR6VXWW0lOl7eda5s98tBGSvRbJKl/ssHVVDfhNx4rseJcU7o+yCVMaZqaauR/kqd9Zqzr4+GSRaVwDDgNqFCNAjiGhqGcB1HF6Oc1SZ6K8i7Z1PvCID/vqLRgJUvcfr0Xiwzjm00lvA1UH33ToyJZCVh6Yvd89he05ir1AnvIxKtov5uHduxWxQ2cBtD4apB2hkpD1tZ/xsWO0nKBCQDzVkcSfpqZRkZvEkj+mg22MxAk/r9UvAXDotZwJCLeTqXHvY5qj7U7KiH3WgDKwmlB+gVINWv50lG4GGy3QIE8XOQvKmz1zULQVK0r+XzWaqTr98v2YzZdpqYWErOpn4Iwa41eDl9yS81669hytX9VnUifOUEw+KKEncw8QqnAMHhJY7tQv3o0aZhWbhfQYSCm8FGgCrSJQ8WN2vNDsmRS5WbhJknFnglyh8fvfaROCA9wSzeDG1gkcForfYxUFzWXWDzDrjCBRWuBwutDcDNMQW2RvyEmWVVi/fuPLgVvF68ptOThgCg9Aoh3z9cz7zmlcCoG+AAHrQzlery2Dq2JKpP1juwLO/XJF93b1ihhPfetShTSxut94gvR5x6wqy1bf2i7+tG+W7gj+4lTmkZM1RHssrDL+QE5+yZJqbGET2K93oVfnWoQj4C8w7JewYbRUTFPig==</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023 Ikuo Shige
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/IkuoShige" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-    </a>
-  
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/IkuoShige" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.footer", "navigation.expand", "toc.integrate", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
-      
-        <script src="../../javascripts/lightbox.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.footer", "navigation.expand", "toc.integrate", "content.code.annotate", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+<script src="../../javascripts/lightbox.js"></script>
+</body>
 </html>
